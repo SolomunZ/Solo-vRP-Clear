@@ -332,24 +332,24 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 Citizen.CreateThread(function()
 	while true do
-		skips = 1000
+		wait = 1000
 		local ped = PlayerPedId()
 		local player = PlayerId()
 		if agachar then
-			skips = 5
+			wait = 5
 			DisablePlayerFiring(player, true)
 		end
-		Citizen.Wait(skips)
+		Citizen.Wait(wait)
 	end
 end)
 
 Citizen.CreateThread(function()
 	while true do
-		skips = 1000
+		wait = 1000
 		local ped = PlayerPedId()
 		DisableControlAction(0,36,true)
 		if not IsPedInAnyVehicle(ped) then
-			skips = 5
+			wait = 5
 			RequestAnimSet("move_ped_crouched")
 			RequestAnimSet("move_ped_crouched_strafing")
 			if IsDisabledControlJustPressed(0,36) then
@@ -364,7 +364,7 @@ Citizen.CreateThread(function()
 				end
 			end
 		end
-		Citizen.Wait(skips)
+		Citizen.Wait(wait)
 	end
 end) 
 
